@@ -31,6 +31,12 @@ app.get('/', (req, res) => {
   res.send('Sniper Bot funcionando!');
 });
 
+// Ruta para recibir Webhooks de Helius
+app.post('/webhook', (req, res) => {
+    console.log('📩 Webhook recibido:', JSON.stringify(req.body, null, 2));
+    res.status(200).send('OK');
+});
+
 // Comando básico en Telegram
 bot.start((ctx) => {
   ctx.reply('Bienvenido al Sniper Bot de Solana! 🚀');
